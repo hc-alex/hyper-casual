@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Conveyor
 {
@@ -8,8 +9,8 @@ namespace Conveyor
     private Rigidbody _rigidbody;
     [SerializeField] private float _speed;
 
-    public bool IsMoving;
-    
+    private bool _isMoving;
+
     private void Awake()
     {
       _rigidbody = transform.GetComponent<Rigidbody>();
@@ -22,13 +23,16 @@ namespace Conveyor
 
     private void Move()
     {
-      if (IsMoving)
+      if (_isMoving)
         _rigidbody.velocity = -Vector3.forward * _speed;
     }
 
-    public void Stop()
+    public void StartMoving() =>
+      _isMoving = true;
+
+    public void StopMoving()
     {
-      IsMoving = false;
+      _isMoving = false;
       _rigidbody.velocity = Vector3.zero;
     }
   }

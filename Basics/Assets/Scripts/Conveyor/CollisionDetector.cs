@@ -5,12 +5,12 @@ namespace Conveyor
 {
   public class CollisionDetector : MonoBehaviour
   {
-    public static event Action<GameObject> OnObjectCollisionExit;
+    public static event Action<GameObject> ObjectCollisionExit;
     
     private void OnCollisionEnter(Collision other)
     {
-      if(other.gameObject.TryGetComponent(out Mover mover)) 
-        mover.IsMoving = true;
+      if (other.gameObject.TryGetComponent(out Mover mover))
+        mover.StartMoving();
     }
 
     private void OnCollisionExit(Collision other)
@@ -18,8 +18,8 @@ namespace Conveyor
       if (!other.gameObject.TryGetComponent(out Mover mover)) 
         return;
       
-      mover.Stop();
-      OnObjectCollisionExit?.Invoke(other.gameObject);
+      mover.StopMoving();
+      ObjectCollisionExit?.Invoke(other.gameObject);
     }
   }
 }

@@ -18,7 +18,7 @@ namespace Conveyor
 
     private void PlaceOnInitialPoint()
     {
-      CollisionDetector.OnObjectCollisionExit += o => 
+      CollisionDetector.ObjectCollisionExit += o => 
         o.transform.position = _initialPoint.position;
     }
   }
