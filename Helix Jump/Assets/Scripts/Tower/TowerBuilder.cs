@@ -31,12 +31,12 @@ namespace Tower
             Vector3 spawnPosition  = transform.position;
             spawnPosition.y += BeamScaleY - _additionalScale;
 
-            SpawnPlatform(_spawnPlatformPrefab, ref spawnPosition, transform);
+            SpawnPlatform(_spawnPlatformPrefab, ref spawnPosition, beam.transform);
             
             for (int i = 0; i < _levelPlatformCount; i++) 
-                SpawnPlatform(_platformPrefabs[Random.Range(0, _platformPrefabs.Length)], ref spawnPosition, transform);
+                SpawnPlatform(_platformPrefabs[Random.Range(0, _platformPrefabs.Length)], ref spawnPosition, beam.transform);
 
-            SpawnPlatform(_finishPlatformPrefab,ref spawnPosition, transform);
+            SpawnPlatform(_finishPlatformPrefab,ref spawnPosition, beam.transform);
         }
 
         private void SpawnPlatform(Platform prefab, ref Vector3 spawnPosition, Transform parent)

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Inputs
+namespace UserInput
 {
   public class MobileInput : IInput
   {

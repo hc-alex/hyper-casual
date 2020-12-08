@@ -364,7 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 4503975801824628779, guid: 61b72697cae1ccd409d2cb8ea2f68219, type: 3}
   _spawnPoint: {fileID: 2093566173}
-  frequency: 1
+  _frequency: 0
 --- !u!114 &68404616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,7 +666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &354696800
 Transform:
   m_ObjectHideFlags: 0
@@ -3454,7 +3454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1554177950
 Transform:
   m_ObjectHideFlags: 0

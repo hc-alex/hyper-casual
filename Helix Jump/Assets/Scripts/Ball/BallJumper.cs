@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Platforms;
+using UnityEngine;
 
 namespace Ball
 {
@@ -15,6 +16,9 @@ namespace Ball
 
         private void OnCollisionEnter(Collision other)
         {
+            if (!other.gameObject.TryGetComponent(out PlatformSegment platformSegment))
+                return;
+            
             _rigidbody.velocity = Vector3.zero;
             _rigidbody.AddForce(Vector3.up * _speed, ForceMode.Impulse);
         }

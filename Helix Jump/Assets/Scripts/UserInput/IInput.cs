@@ -1,4 +1,4 @@
-﻿namespace Inputs
+﻿namespace UserInput
 {
   public interface IInput
   {
