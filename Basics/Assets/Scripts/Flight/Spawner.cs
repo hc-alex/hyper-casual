@@ -7,24 +7,27 @@ namespace Flight
     [SerializeField] private GameObject _prefab;
     [SerializeField] private Transform _spawnPoint;
     
-    [SerializeField] private int frequency;
+    [SerializeField] private int _frequency;
     private float _timer;
 
     private void Update()
     {
-      Spawn();
+      TrySpawnByTimer();
     }
-    
-    private void Spawn()
+
+    private void TrySpawnByTimer()
     {
       _timer += Time.deltaTime;
 
-      if (!(_timer > frequency))
+      if (!(_timer > _frequency))
         return;
-
-      Instantiate(_prefab, _spawnPoint.position, Quaternion.identity);
+      
+      Spawn();
       
       _timer = 0;
     }
+
+    private void Spawn() => 
+      Instantiate(_prefab, _spawnPoint.position, Quaternion.identity);
   }
 }
