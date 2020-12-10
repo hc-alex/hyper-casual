@@ -17,7 +17,7 @@ namespace Tower
       _rigidbody = GetComponent<Rigidbody>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
       float torque = UserInput.Torque * _rotationSpeed * Time.deltaTime;
       _rigidbody.AddTorque(Vector3.up * torque);

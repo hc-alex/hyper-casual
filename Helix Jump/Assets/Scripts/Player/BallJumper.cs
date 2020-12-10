@@ -1,7 +1,7 @@
 ﻿using Platforms;
 using UnityEngine;
 
-namespace Ball
+namespace Player
 {
     [RequireComponent(typeof(Rigidbody))]
     public class BallJumper : MonoBehaviour

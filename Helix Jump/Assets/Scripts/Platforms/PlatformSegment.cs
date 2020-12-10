@@ -6,11 +6,11 @@ namespace Platforms
   {
     public void Bounce(float force, Vector3 position, float radius)
     {
-      if (!TryGetComponent(out Rigidbody rigidbody)) 
+      if (!TryGetComponent(out Rigidbody outRigidbody)) 
         return;
       
-      rigidbody.isKinematic = false;
-      rigidbody.AddExplosionForce(force, position, radius);
+      outRigidbody.isKinematic = false;
+      outRigidbody.AddExplosionForce(force, position, radius);
     } 
   }
 }

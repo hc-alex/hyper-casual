@@ -224,9 +224,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 934061062}
-  - component: {fileID: 934061063}
+  - component: {fileID: 934061066}
   - component: {fileID: 934061064}
   - component: {fileID: 934061065}
+  - component: {fileID: 934061063}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -257,17 +258,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 934061061}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0db781f431670cf408dc5c4e2c5b645b, type: 3}
+  m_Script: {fileID: 11500000, guid: d67fb598ceaab1a47a21597cd8530bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _levelPlatformCount: 5
   _additionalScale: 2
   _distanceBetweenPlatformsY: 1
   _beam: {fileID: 1381525002514924196, guid: 5fd25fab55f637a4f8a89e3e5cf75b54, type: 3}
-  _platformPrefabs:
-  - {fileID: -4408067569729437477, guid: d63f762890ca861498621d5bce785771, type: 3}
-  _spawnPlatformPrefab: {fileID: 2711206909907412523, guid: 014fab5ea4350a2489261339f191455f, type: 3}
-  _finishPlatformPrefab: {fileID: 1831740621936037057, guid: 32b3c1e9c143d234087181a37b0d4cdd, type: 3}
+  _ball: {fileID: 8404710671238647675, guid: 39e38a2a616697c44baa0f61b3176a3f, type: 3}
 --- !u!54 &934061064
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -296,7 +294,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e415eb244eca3a74baa666c936fd8b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 15
+  _rotationSpeed: 20
+--- !u!114 &934061066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934061061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b755c05114646374ab2e3d74bd64cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _segment60Prefab: {fileID: 4971928115942402944, guid: 9aa4961fff67a1348994ce92ce08ed2c, type: 3}
+  _segment90Prefab: {fileID: 5671648908986792289, guid: 56c090848c7badc479d47d0df7a1e8b7, type: 3}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +320,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -374,9 +387,23 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e3500b5bc23511458017643651c17d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _offset: {x: 0, y: -0.7, z: 0}
+  _length: 2
