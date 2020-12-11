@@ -13,11 +13,9 @@ namespace Player
 
     private void OnCollisionEnter(Collision other)
     {
-      FinishPlatform componentInParent = other.gameObject.GetComponentInParent<FinishPlatform>(); 
-      
-      if (componentInParent == null)
+      if (!other.gameObject.transform.parent.TryGetComponent(out FinishPlatform finishPlatform))
         return;
-      
+     
       GetComponent<Rigidbody>().isKinematic = true;
       Debug.Log("The Finish Platform has been reached! Relax.");
     }
