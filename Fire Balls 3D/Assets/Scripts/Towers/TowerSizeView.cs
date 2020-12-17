@@ -9,13 +9,23 @@ namespace Towers
     [SerializeField] private Tower _tower;
     [SerializeField] private string _finalMessage = "The End";
 
-    private void OnEnable() => 
+    private void OnEnable()
+    {
       _tower.SizeUpdated += OnSizeUpdated;
+      _tower.GameOver += OnGameOver;
+    }
 
-    private void OnDisable() => 
+    private void OnDisable()
+    {
       _tower.SizeUpdated -= OnSizeUpdated;
+      _tower.GameOver -= OnGameOver;
+    }
 
-    private void OnSizeUpdated(int size) => 
-      _sizeView.text = size > 0 ? size.ToString() : _finalMessage;
+    private void OnSizeUpdated(int size) =>
+      _sizeView.text = size.ToString();
+
+    private void OnGameOver() =>
+      _sizeView.text = _finalMessage;
+
   }
 }

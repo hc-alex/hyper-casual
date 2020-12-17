@@ -11,6 +11,7 @@ namespace Towers
         private List<Pipe> _pipes;
 
         public event UnityAction<int> SizeUpdated;
+        public event UnityAction GameOver;
 
         private void Start()
         {
@@ -37,7 +38,10 @@ namespace Towers
                 pipe.transform.position = newPosition;
             }
             
-            SizeUpdated?.Invoke(_pipes.Count);
+            if(_pipes.Count > 0)
+                SizeUpdated?.Invoke(_pipes.Count);
+            else
+                GameOver?.Invoke();
         }
     }
 }
