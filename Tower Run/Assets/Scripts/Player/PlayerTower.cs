@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Towers;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Player
 {
@@ -13,28 +12,25 @@ namespace Player
     [SerializeField] private BoxCollider _collider;
     [SerializeField] private float _maxDistance;
 
-    [SerializeField] private float _timeToWave;
-    private float _timer;
-
     private List<Human> _humans;
+    public List<Human> Humans => _humans;
+    
     private float _baseCheckerOffsetY = 1.35f;
 
     public event Action HumansFinished;
     public event Action<int> HumanCountChanged;
 
+    private void Awake()
+    {
+      _humans = new List<Human> { Instantiate(_humanPrefab, transform.position, Quaternion.identity, transform) };
+    }
 
     private void Start()
     {
-      _humans = new List<Human> { Instantiate(_humanPrefab, transform.position, Quaternion.identity, transform) };
       _humans[0].Run();
       HumanCountChanged?.Invoke(_humans.Count);
     }
-
-    private void Update()
-    {
-      TryWaveByTimer();
-    }
-
+    
     private void OnTriggerEnter(Collider other)
     {
       if (!other.gameObject.TryGetComponent(out Human human))
@@ -111,21 +107,7 @@ namespace Player
       _checker.transform.position = newChekerPosition;
       _collider.center = _checker.localPosition;
     }
-
-    private void TryWaveByTimer()
-    {
-      if (_humans.Count <= 1)
-        return;
-
-      _timer += Time.deltaTime;
-
-      if (_timer < _timeToWave)
-        return;
-
-      _timer = 0;
-      _humans[Random.Range(1, _humans.Count)].Wave();
-    }
-
+    
     private void InsertHuman(Human human)
     {
       human.transform.parent = transform;
